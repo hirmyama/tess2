@@ -25,6 +25,10 @@ EOF
 sudo curl -o /var/www/html/adminer.php -L https://www.adminer.org/latest-mysql.php
 sudo chown apache:apache /var/www/html/adminer.php
 
+# WordPress アドレス / サイトアドレスを固定する
+sed -ie '/<?php/a define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);' /var/www/html/wp-config.php
+sed -ie '/<?php/a define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);' /var/www/html/wp-config.php
+
 # Apacheを起動
 sudo systemctl enable --now httpd.service
 
