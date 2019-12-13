@@ -12,7 +12,7 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/bin/wp
 sudo mkdir -p /usr/share/httpd/.wp-cli/cache/
 sudo chown apache:apache /usr/share/httpd/.wp-cli/cache/
-sudo -u apache wp core download --version=5.3 --locale=ja --path=/var/www/html
+sudo -u apache wp core download --version=5.3.1 --locale=ja --path=/var/www/html
 
 # タイトルに日本語が使えるようにする
 cat <<EOF |sudo tee /etc/httpd/conf.d/wp.conf
